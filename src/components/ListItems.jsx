@@ -1,45 +1,4 @@
-const Header = (props) => {
-    return(
-        <div className="header">
-            <i>icon</i>
-            <p>Welcome, Friend!</p>
-        </div>
-    )
-}
-
-const Navbar = (props) => {
-    return(
-        <nav>
-            <span>TASK MANAGER</span>
-            <ul>
-                <li>House Chores</li>
-                <li>Today</li>
-                <li>Grocery List</li>
-            </ul>
-            <button><i>Icon</i>Add a Page</button>
-        </nav>
-    )
-}
-
-const Title = (props) => {
-    return(
-        <div className="title">
-        <p>TODAY</p>
-        <button><i>Icon</i>Add a To Do</button>
-        <div>
-            <div className="complete"><p>Complete</p></div>
-            <div className="item"><p>Item</p></div>
-            <div className="titles">
-                <p>Priority</p>
-                <p>Time</p>
-                <p>Delete</p>
-            </div>
-        </div>
-        </div>
-    )
-}
-
-const ListItems = (props) => {
+export default function ListItems(){
     return(
         <div className="listItems">
         <div className="list">
@@ -89,29 +48,4 @@ const ListItems = (props) => {
         </div>
         </div>
     )
-} 
-
-const Footer = (props) => {
-    return(
-        <footer><p>© 2023 Feyza Basaran. All rights reserved.</p></footer>
-    )
 }
-
-
-
-function App (){
-    return(
-        <React.Fragment>
-        <Header/>
-        <Navbar/>
-        <Title/>
-        <ListItems/>
-        <Footer/>
-        </React.Fragment>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
-root.render(<App/>)
-
