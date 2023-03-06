@@ -129,7 +129,7 @@ button i{
     display: none;
 }
 
-.list span{
+.list .variants span{
     min-width: 25px;
     height: 25px;
     background-color: #FFD7D0;
@@ -222,9 +222,6 @@ footer{
         padding-left: 35px;
         padding-right: 35px;
         flex-wrap:wrap;
-    }
-
-    .title p{
     }
 
     .title div{
