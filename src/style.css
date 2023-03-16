@@ -120,6 +120,10 @@ button i{
 .listItems{
     min-height: calc(100vh - 212px);
 }
+.isNoItem{
+    height: 60vh;
+    margin-left: 30px;
+}
 
 .list input{
     margin-left: 12px;
@@ -315,6 +319,11 @@ footer{
         margin-left: 300px;
         justify-content: end;
         padding-right: 35px;
+    }
+
+    .isNoItem{
+        margin-left: 350px;
+        height: 60vh;
     }
 
 }

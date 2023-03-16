@@ -2,30 +2,41 @@ import React from 'react'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import Title from './components/Title'
-import List from './components/List'
 import Footer from './components/Footer'
+import List from './components/List'
 import './style.css'
-import NewItem from './components/NewItem'
 
+
+
+let items = [
+  {
+      "index": 0,
+      "task": "Cooking", 
+      "priority": "High",
+      "time": 10.30,
+  },
+  { 
+      "index": 1,
+      "task": "Cooking", 
+      "priority": "High",
+      "time": 10.30,
+  },
+  {
+      "index": 2,
+      "task": "Cooking", 
+      "priority": "High",
+      "time": 10.30,
+  }
+  ]
 
 function App (){  
-
-  const initialData = [
-    { task: 'Meeting with the team', complete: true},
-    {task: 'Project Due', complete: false},
-   ]  
-  
-  const [list, setList] = React.useState(initialData)
-  
-  
 
   return(
     <div>
       <Header/>
       <Navbar/>
       <Title/>
-      <NewItem/>
-      <List list={list}/>
+      <List items={items} />
       <Footer/>
     </div>
   )
