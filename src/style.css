@@ -134,11 +134,19 @@ button i{
 }
 
 .list .variants span{
-    min-width: 25px;
-    height: 25px;
-    background-color: #FFD7D0;
-    border-radius: 50px;
+    display: none;
 }
+
+.list .variants .color{
+    display: inline;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: pink;
+    z-index: 2;
+}
+
+
 
 .variants{
     display: flex;
@@ -151,6 +159,7 @@ button i{
 
 .variants p{
     margin: 10px;
+    min-width: 40px;
 }
 
 .textarea{
@@ -326,6 +335,18 @@ footer{
         height: 60vh;
     }
 
+    .list .variants span{
+        display: flex;
+        min-width: 25px;
+        height: 25px;
+        background-color: #FFD7D0;
+        border-radius: 50px;
+        z-index: 1;
+    }
+
+    .list .variants .color{
+        display: none;
+    }
 }
 
 
