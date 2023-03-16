@@ -1,7 +1,7 @@
 function Header (){
     return(
         <div className="header">
-            <i>icon</i>
+            <i class="fa-solid fa-bars"></i>
             <p>Welcome, Friend!</p>
         </div>
     )

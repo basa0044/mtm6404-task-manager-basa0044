@@ -139,8 +139,8 @@ button i{
 
 .list .variants .color{
     display: inline;
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
     border-radius: 100%;
     background-color: pink;
     z-index: 2;

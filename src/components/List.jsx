@@ -16,7 +16,7 @@ export default  function List (props) {
                 <span>{item.priority}</span>
                 <span className="color"></span>
                 <p className="time">{item.time}</p>
-                <i>Icon</i>
+                <i class="fa-solid fa-trash"></i>
             </div>
         </div>
     )
