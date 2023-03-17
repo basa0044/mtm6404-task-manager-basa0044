@@ -1,17 +1,18 @@
 import React from "react"
 
-export default function Form(){
+export default function Form(props){
 
     const [task, setTask] = React.useState('')
 
     function formHandler (e){
         e.preventDefault()
-
+        const newTask = { task: task, complete: false}
+        props.onAdd(newTask)
+        setTask('')
     }
 
     function textHandler(e){
         setTask(e.target.value)
-        console.log(task)
     }
 
  return (

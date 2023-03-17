@@ -46,13 +46,21 @@ function App (){
 
   const [list, setList] = React.useState(items)
 
+  function onAddHandler (task){
+    setList([...list, task])
+  }
+
+  function onUpdateHandler(list){
+    setList(list)
+  }
+
   return(
     <div>
       <Header/>
       <Navbar/>
       <Title/>
-      <Form />
-      <List items={items} />
+      <Form onAdd={onAddHandler}/>
+      <List list={list} onUpdate={onUpdateHandler}/>
       <Footer/>
     </div>
   )
