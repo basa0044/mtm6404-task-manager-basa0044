@@ -204,6 +204,20 @@ input:focus, textarea:focus, select:focus{
     outline: none;
 }
 
+.list.button{
+    background-color: #FAFAFF;
+    justify-content: space-between;
+}
+
+.showItems{
+    background-color: #FAFAFF;
+    color: black;
+    box-shadow: none;
+    height: auto;
+    font-size: 1rem;
+    font-family: Souce sans-serif;
+}
+
 
 @media only screen and (min-width: 750px){
     nav{

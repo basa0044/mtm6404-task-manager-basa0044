@@ -1,5 +1,6 @@
 import React from "react"
 import ListItem from "./ListItem"
+import Show from "./Show"
 
 export default  function List (props) {
     
@@ -15,6 +16,7 @@ export default  function List (props) {
         const updatedList = list.filter(item => item.id !== deletedItem.id)
         props.onDelete(updatedList)
     }
+    const remaining = list.filter(item => !item.complete).length
     
     if(list.length){    
     return(
@@ -22,6 +24,7 @@ export default  function List (props) {
       {list.map(item => <ListItem key={item.id} item={item} 
       onUpdateItem={onUpdateItemHandler}
       onDeleteItem={onDeleteItemHandler}/>)}
+      <Show remaining={remaining}/>
       </ul>
       ) }else{
         return(
