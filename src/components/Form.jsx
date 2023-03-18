@@ -16,14 +16,13 @@ export default function Form(props){
     }
 
  return (
-    <form onSubmit={formHandler}>
-        <input type="text" placeholder="Create a new todo..." value={task} onChange={textHandler}/>
-        <select>
+    <form onSubmit={formHandler} className="list">
+        <input className="textarea" type="text" placeholder="Create a new todo..." value={task} onChange={textHandler}/>
+        <select className="variants">
             <option value="high">High</option>
             <option value="med">Medium</option>
             <option value="low">Low</option>
         </select>
-        <input type="time"></input>
       </form>
  )
 }

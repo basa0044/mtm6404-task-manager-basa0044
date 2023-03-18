@@ -180,6 +180,19 @@ footer{
     display: none;
 }
 
+input:checked ~ .textarea{
+    color: rgba(128, 128, 128, 0.599);
+}
+
+input:checked ~ .variants > span{
+    color: rgba(128, 128, 128, 0.599);
+    background-color: rgba(128, 128, 128, 0.099);
+}
+
+input:checked ~ .variants > .color{
+    background-color: rgba(128, 128, 128, 0.099);
+}
+
 @media only screen and (min-width: 750px){
     nav{
         display: flex;

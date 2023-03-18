@@ -16,7 +16,6 @@ function Title(){
             <div className="item"><p>Item</p></div>
             <div className="titles">
                 <p>Priority</p>
-                <p>Time</p>
                 <p>Delete</p>
             </div>
         </div>
