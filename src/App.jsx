@@ -16,35 +16,33 @@ function App (){
       complete: false,
       task: "Clean your room", 
       priority: "Low",
-      time: '18.30',
     },
     { 
       complete: false,
       task: "Workout", 
       priority: "Medium",
-      time: '21.30',
     },
     {
       complete: false,
       task: "Movie Time", 
       priority: "Medium",
-      time: '22.30',
     },
     {
       complete: false,
       task: "Cooking", 
       priority: "High",
-      time: '17.00',
     },
     {
       complete: true,
       task: "Lecture", 
       priority: "High",
-      time: '8.00',
     }
     ]
 
-  const [list, setList] = React.useState(items)
+
+  const [list, setList] = React.useState(() => 
+   JSON.parse(localStorage.getItem('list')) || items)
+
 
   function onAddHandler (task){
     setList([...list, task])
@@ -54,13 +52,21 @@ function App (){
     setList(list)
   }
 
+  function onDeleteHandler (list){
+    setList(list)
+  }
+
+  React.useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list))
+  }, [JSON.stringify(list)])
+
   return(
     <div>
       <Header/>
       <Navbar/>
       <Title/>
       <Form onAdd={onAddHandler}/>
-      <List list={list} onUpdate={onUpdateHandler}/>
+      <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler}/>
       <Footer/>
     </div>
   )

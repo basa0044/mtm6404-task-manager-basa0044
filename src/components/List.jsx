@@ -10,11 +10,18 @@ export default  function List (props) {
             {...item, complete: !item.complete } : item)
             props.onUpdate(updatedList)
     }
+
+    function onDeleteItemHandler(deletedItem) {
+        const updatedList = list.filter(item => item.id !== deletedItem.id)
+        props.onDelete(updatedList)
+    }
     
     if(list.length){    
     return(
       <ul className='listItems'>
-      {list.map(item => <ListItem key={item.id} item={item} onUpdateItem={onUpdateItemHandler}/>)}
+      {list.map(item => <ListItem key={item.id} item={item} 
+      onUpdateItem={onUpdateItemHandler}
+      onDeleteItem={onDeleteItemHandler}/>)}
       </ul>
       ) }else{
         return(

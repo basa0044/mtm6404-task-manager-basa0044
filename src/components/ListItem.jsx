@@ -7,6 +7,10 @@ export default function ListItem(props){
         props.onUpdateItem(item)
     }
 
+    function clickHandler(){
+        props.onDeleteItem(item)
+    }
+
     return(
         <div key={item.id} className="list">
              <input type="checkbox" 
@@ -19,7 +23,7 @@ export default function ListItem(props){
                 <span>{item.priority}</span>
                 <span className="color"></span>
                 <p className="time">{item.time}</p>
-                <i className="fa-solid fa-trash"></i>
+                <i onClick={clickHandler} className="fa-solid fa-trash"></i>
             </div>
        </div>
     )
