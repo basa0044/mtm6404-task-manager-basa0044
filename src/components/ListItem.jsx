@@ -20,7 +20,7 @@ export default function ListItem(props){
              </input>
             <span className="textarea">{item.task}</span>
             <div className="variants">
-                <span>{item.priority}</span>
+                <span >{item.priority}</span>
                 <span className="color"></span>
                 <p className="time">{item.time}</p>
                 <i onClick={clickHandler} className="fa-solid fa-trash"></i>

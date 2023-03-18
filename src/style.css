@@ -182,6 +182,7 @@ footer{
 
 input:checked ~ .textarea{
     color: rgba(128, 128, 128, 0.599);
+    text-decoration: line-through;
 }
 
 input:checked ~ .variants > span{
@@ -192,6 +193,17 @@ input:checked ~ .variants > span{
 input:checked ~ .variants > .color{
     background-color: rgba(128, 128, 128, 0.099);
 }
+
+form > .textarea{
+    border: none;
+    font-family: Souce sans-serif;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
 
 @media only screen and (min-width: 750px){
     nav{

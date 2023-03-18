@@ -16,26 +16,31 @@ function App (){
       complete: false,
       task: "Clean your room", 
       priority: "Low",
+      time: 10.30,
     },
     { 
       complete: false,
       task: "Workout", 
       priority: "Medium",
+      time: 10.30,
     },
     {
       complete: false,
       task: "Movie Time", 
       priority: "Medium",
+      time: 10.30,
     },
     {
       complete: false,
       task: "Cooking", 
       priority: "High",
+      time: 10.30,
     },
     {
       complete: true,
       task: "Lecture", 
       priority: "High",
+      time: 10.30,
     }
     ]
 
