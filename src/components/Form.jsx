@@ -4,10 +4,11 @@ export default function Form(props){
 
     const [task, setTask] = React.useState('')
     const [time, setTime] = React.useState('')
+    const [priority, setPriority] = React.useState('')
 
     function formHandler (e){
         e.preventDefault()
-        const newTask = { task: task, complete: false, time: time}
+        const newTask = { task: task, complete: false, time: time, priority:priority }
         console.log(newTask)
         props.onAdd(newTask)
         setTask('')
@@ -21,11 +22,15 @@ export default function Form(props){
         setTime(e.target.value)
     }
 
+    function priorityHandler(e){
+        setPriority(e.target.value)
+    }
+
  return (
     <form onSubmit={formHandler} className="list">
         <input className="textarea" type="text" placeholder="Create a new todo..." 
         value={task} onChange={changeHandler}/>
-        <select  className="variants">
+        <select  onChange={priorityHandler} className="variants">
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
