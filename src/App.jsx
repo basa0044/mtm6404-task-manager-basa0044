@@ -52,6 +52,9 @@ function App (){
     setList([...list, task])
   }
 
+
+  
+
   function onUpdateHandler(list){
     setList(list)
   }
@@ -63,6 +66,12 @@ function App (){
   function onHideHandler (list){
     setList(list)
   }
+
+  list.sort((a, b) => {
+    if( a.priority === 'High'){ return -1}
+    else if(a.priority === 'Medium'){return 0}
+    else if(a.priority === 'Low'){return 1}
+  })
 
   React.useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list))

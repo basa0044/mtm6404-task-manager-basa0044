@@ -4,7 +4,7 @@ export default function Form(props){
 
     const [task, setTask] = React.useState('')
     const [time, setTime] = React.useState('')
-    const [priority, setPriority] = React.useState('')
+    const [priority, setPriority] = React.useState('High')
 
     function formHandler (e){
         e.preventDefault()
@@ -12,6 +12,8 @@ export default function Form(props){
         props.onAdd(newTask)
         setTask('')
     }
+
+
 
     function changeHandler(e){
         setTask(e.target.value)
