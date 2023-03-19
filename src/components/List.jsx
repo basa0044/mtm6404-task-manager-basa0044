@@ -3,7 +3,7 @@ import ListItem from "./ListItem"
 import Show from "./Show"
 
 export default  function List (props) {
-    
+
     const list = props.list.map((item, id) => ({...item, id}))
 
     function onUpdateItemHandler(updatedItem){
@@ -17,14 +17,13 @@ export default  function List (props) {
         props.onDelete(updatedList)
     }
     const remaining = list.filter(item => !item.complete).length
-    
 
     if(list.length){    
     return(
       <ul className='listItems'>
       {list.map(item => <ListItem key={item.id} item={item} 
       onUpdateItem={onUpdateItemHandler}
-      onDeleteItem={onDeleteItemHandler}/>)}
+      onDeleteItem={onDeleteItemHandler} />)}
       <Show remaining={remaining} />
       </ul>
       ) }else{

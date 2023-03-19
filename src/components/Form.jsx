@@ -5,7 +5,6 @@ export default function Form(props){
     const [task, setTask] = React.useState('')
     const [time, setTime] = React.useState('')
     const [priority, setPriority] = React.useState('')
-    const [color, setColor] = React.useState('')
 
     function formHandler (e){
         e.preventDefault()
