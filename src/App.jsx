@@ -49,6 +49,12 @@ function App (){
   const [list, setList] = React.useState(() => 
    JSON.parse(localStorage.getItem('list')) || items)
 
+  const [color, setColor] = React.useState('')
+
+  function onColorChangeHandler(e){
+    setColor(e.target.color)
+  }
+
 
   function onAddHandler (task){
     setList([...list, task])
@@ -71,8 +77,8 @@ function App (){
       <Header/>
       <Navbar/>
       <Title/>
-      <Form onAdd={onAddHandler}/>
-      <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler}/>
+      <Form onAdd={onAddHandler} color={color} onColorChange={onColorChangeHandler}/>
+      <List list={list} color={color }onUpdate={onUpdateHandler} onDelete={onDeleteHandler}/>
       <Footer/>
     </div>
   )

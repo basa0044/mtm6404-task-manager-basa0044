@@ -218,6 +218,18 @@ input:focus, textarea:focus, select:focus{
     font-family: Souce sans-serif;
 }
 
+.btn-yellow{
+    background-color: yellow;
+}
+
+.btn-red{
+    background-color: red;
+}
+
+.btn-blue{
+    background-color: blue;
+}
+
 
 @media only screen and (min-width: 750px){
     nav{
@@ -382,7 +394,6 @@ input:focus, textarea:focus, select:focus{
         display: flex;
         min-width: 25px;
         height: 25px;
-        background-color: #FFD7D0;
         border-radius: 50px;
         z-index: 1;
     }
