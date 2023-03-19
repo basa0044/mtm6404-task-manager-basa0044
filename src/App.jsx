@@ -6,7 +6,6 @@ import Title from './components/Title'
 import Footer from './components/Footer'
 import List from './components/List'
 import Form from './components/Form'
-import Show from './components/Show'
 import './style.css'
 
 
@@ -49,13 +48,6 @@ function App (){
   const [list, setList] = React.useState(() => 
    JSON.parse(localStorage.getItem('list')) || items)
 
-  const [color, setColor] = React.useState('')
-
-  function onColorChangeHandler(e){
-    setColor(e.target.color)
-  }
-
-
   function onAddHandler (task){
     setList([...list, task])
   }
@@ -68,6 +60,10 @@ function App (){
     setList(list)
   }
 
+  function onHideHandler (list){
+    setList(list)
+  }
+
   React.useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list))
   }, [JSON.stringify(list)])
@@ -77,8 +73,8 @@ function App (){
       <Header/>
       <Navbar/>
       <Title/>
-      <Form onAdd={onAddHandler} color={color} onColorChange={onColorChangeHandler}/>
-      <List list={list} color={color }onUpdate={onUpdateHandler} onDelete={onDeleteHandler}/>
+      <Form onAdd={onAddHandler}/>
+      <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler} onHide={onHideHandler}/>
       <Footer/>
     </div>
   )

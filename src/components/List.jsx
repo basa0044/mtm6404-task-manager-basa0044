@@ -17,18 +17,15 @@ export default  function List (props) {
         props.onDelete(updatedList)
     }
     const remaining = list.filter(item => !item.complete).length
-
-    const hide = list.filter(item => item.complete)
-
-    const color = props.color
     
+
     if(list.length){    
     return(
       <ul className='listItems'>
       {list.map(item => <ListItem key={item.id} item={item} 
       onUpdateItem={onUpdateItemHandler}
-      onDeleteItem={onDeleteItemHandler} variant={color}/>)}
-      <Show remaining={remaining} hide={hide} />
+      onDeleteItem={onDeleteItemHandler}/>)}
+      <Show remaining={remaining} />
       </ul>
       ) }else{
         return(

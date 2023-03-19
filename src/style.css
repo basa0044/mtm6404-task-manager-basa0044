@@ -339,7 +339,9 @@ input:focus, textarea:focus, select:focus{
     }
 
     .listItems{
-        min-height: calc(100vh - 385px);
+        min-height: calc(100vh - 431px);
+        max-height: calc(100vh - 431px);
+        overflow: scroll;
     }
 
     .list input{
