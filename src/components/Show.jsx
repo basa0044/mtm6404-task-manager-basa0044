@@ -2,8 +2,6 @@ import React from "react"
 
 export default function Show(props){
 
-    const item = props.item
-
     function clickHandler(){
         props.onClickButton()
     }
