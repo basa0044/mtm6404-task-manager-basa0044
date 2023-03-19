@@ -18,13 +18,18 @@ export default  function List (props) {
     }
     const remaining = list.filter(item => !item.complete).length
 
+    function onClickButtonHandler(){
+        const updatedList = list.filter(item => !item.complete)
+        props.onHide(updatedList)
+    }
+
     if(list.length){    
     return(
       <ul className='listItems'>
       {list.map(item => <ListItem key={item.id} item={item} 
       onUpdateItem={onUpdateItemHandler}
       onDeleteItem={onDeleteItemHandler} />)}
-      <Show remaining={remaining} />
+      <Show remaining={remaining} onClickButton={onClickButtonHandler}/>
       </ul>
       ) }else{
         return(
