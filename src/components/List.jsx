@@ -6,6 +6,8 @@ export default  function List (props) {
 
     const list = props.list.map((item, id) => ({...item, id}))
 
+
+
     function onUpdateItemHandler(updatedItem){
         const updatedList =  list.map(item => item.id === updatedItem.id ?
             {...item, complete: !item.complete } : item)
@@ -23,7 +25,14 @@ export default  function List (props) {
         props.onHide(updatedList)
     }
 
-    if(list.length){    
+    if(list.length){
+        list.sort((a, b) => {
+            if(a.priority < b.priority){return -1}
+            else if(a.priority > b.priority){return 1}
+            else{return 0}
+        })   
+
+        list.reverse()
     return(
       <ul className='listItems'>
       {list.map(item => <ListItem key={item.id} item={item} 

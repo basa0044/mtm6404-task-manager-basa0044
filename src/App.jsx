@@ -33,13 +33,13 @@ function App (){
     {
       complete: false,
       task: "Cooking", 
-      priority: "High",
+      priority: "Urgent",
       time: "10.30",
     },
     {
       complete: true,
       task: "Lecture", 
-      priority: "High",
+      priority: "Urgent",
       time: "10.30",
     }
     ]
@@ -53,8 +53,6 @@ function App (){
   }
 
 
-  
-
   function onUpdateHandler(list){
     setList(list)
   }
@@ -67,15 +65,11 @@ function App (){
     setList(list)
   }
 
-  list.sort((a, b) => {
-    if( a.priority === 'High'){ return -1}
-    else if(a.priority === 'Medium'){return 0}
-    else if(a.priority === 'Low'){return 1}
-  })
-
   React.useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list))
   }, [JSON.stringify(list)])
+
+
 
   return(
     <div>
