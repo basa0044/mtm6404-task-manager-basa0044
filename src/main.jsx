@@ -6,22 +6,26 @@ import NewList from './routes/NewList'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import ListTemplate from './routes/ListTemplate'
+
+const pages = []
+console.log(pages)
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<App/>, 
+    element:<App/>,
     children: [
       {
-        path: "/",
-        element: <Header/>
+        path: "/:id",
+        element: <ListTemplate/>
+      },
+      {
+        path: "/NewList",
+        element: <NewList/>
       }
-    ]
+    ] 
   },
-  {
-      path: "/NewList",
-      element: <NewList/>
-  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -6,10 +6,11 @@ import Title from './components/Title'
 import Footer from './components/Footer'
 import List from './components/List'
 import Form from './components/Form'
-
-
+import {ContextApi} from './components/ContextApi'
 
 function App (){  
+
+  const [context, Setcontext] = React.useState("list item")
 
   let items = [
     {
@@ -72,13 +73,16 @@ function App (){
 
 
   return(
+    <ContextApi.Provider value={context}>
     <div>
+      <Header/>
       <Navbar/>
       <Title/>
       <Form onAdd={onAddHandler}/>
       <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler} onHide={onHideHandler}/>
       <Footer/>
     </div>
+    </ContextApi.Provider>
   )
 }
 

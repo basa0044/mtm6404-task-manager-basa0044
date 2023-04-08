@@ -10,7 +10,7 @@ export default function Navbar(){
             <span>TASK MANAGER</span>
             <ul>
                 <li>
-                <NavLink to="/" className={isActive => isActive? 'nav-link active' : 'nav-link'}>Today</NavLink>
+                <NavLink to="/" className={isActive => isActive? 'nav-link active' : 'nav-link'}>To Do List</NavLink>
                 </li>
             </ul>
             <Link to='/NewList'>
