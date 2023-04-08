@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/Navbar";
+import React from "react";
 
 export default function NewList(){
+
+    const[list, setList] = React.useState('')
 
     function submitHandler(e){
         e.preventDefault()
@@ -10,7 +13,8 @@ export default function NewList(){
     return(
         <>
         <NavBar/>
-        <form onSubmit={submitHandler} className="p-5 bg-light border border-1 mb-3 newPageForm">
+        <div className="newForm">
+        <form onSubmit={submitHandler} className="newPageForm">
             <h1 className="mb-3">New Page</h1>
             <label htmlFor="name">Title</label>
             <input id="name" type="text" className="form-control"></input>
@@ -19,6 +23,7 @@ export default function NewList(){
             <button className="btn btn-primary btn--save" type="submit">Save</button>
             </div>
         </form>
+        </div>
         </>
     )
 }
