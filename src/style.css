@@ -58,15 +58,22 @@ table {
     min-height: 560px;
 }
 
+h1{
+    font-size: 34px;;
+}
+
+
 .header{
   display: flex;
   padding-right: 20px;
   padding-left: 20px;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 3px solid #F4F4F6;
   padding-top: 14px;
   padding-bottom: 14px;
 }
+
 
 nav{
     display: none;
@@ -103,7 +110,6 @@ button{
 
 button i{
     padding-right: 5px;
-    color: white;
 }
 
 .list{
@@ -406,6 +412,29 @@ input:focus, textarea:focus, select:focus{
 
     .list .variants .color{
         display: none;
+    }
+
+    .newPageForm{
+        margin-left: 300px;
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    .btn--cancel{
+        width: 150px;
+        height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .buttons--container{
+        display: flex;
+        justify-content: space-between;
     }
 }
 

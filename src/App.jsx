@@ -73,7 +73,6 @@ function App (){
 
   return(
     <div>
-      <Header/>
       <Navbar/>
       <Title/>
       <Form onAdd={onAddHandler}/>

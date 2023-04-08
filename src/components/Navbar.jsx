@@ -1,18 +1,27 @@
-import { Link } from "react-router-dom"
+import { Outlet, NavLink ,Link } from "react-router-dom"
+import React from "react"
 
 export default function Navbar(){
+
+
     return(
+        <>
         <nav>
             <span>TASK MANAGER</span>
             <ul>
                 <li>
-                <Link to="/">Today</Link>
-                </li>
-                <li>
-                <Link to="/New">New Page</Link>
+                <NavLink to="/" className={isActive => isActive? 'nav-link active' : 'nav-link'}>Today</NavLink>
                 </li>
             </ul>
-            <button><i className="fa-solid fa-plus"></i>Add a Page</button>
+            <Link to='/NewList'>
+            <button  className="btn btn-light">
+                <i className="fa-solid fa-plus"></i>Add a Page
+            </button> 
+            </Link>
         </nav>
+        <div>
+            <Outlet/>
+        </div>
+        </>
     )
 }
