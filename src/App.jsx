@@ -6,7 +6,7 @@ import Title from './components/Title'
 import Footer from './components/Footer'
 import List from './components/List'
 import Form from './components/Form'
-import './style.css'
+
 
 
 function App (){  

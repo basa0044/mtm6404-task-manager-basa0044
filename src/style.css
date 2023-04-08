@@ -272,16 +272,20 @@ input:focus, textarea:focus, select:focus{
     .header{
         position: absolute;
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         right: 0px;
         height: 130px;
-        padding-left: 35px;
+        padding-left: 320px;
     }
 
     .header i{
         display: none;
+    }
+
+    .header h1{
+        font-size: 3rem;
     }
 
     .title{
