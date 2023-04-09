@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import List from './components/List'
 import Form from './components/Form'
 import {ContextApi} from './components/ContextApi'
+import { Outlet } from 'react-router-dom'
 
 function App (){  
 
@@ -77,11 +78,12 @@ function App (){
     <div>
       <Header/>
       <Navbar/>
-      <Title/>
-      <Form onAdd={onAddHandler}/>
-      <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler} onHide={onHideHandler}/>
-      <Footer/>
+      {/* <Title/> */}
+      {/* <Form onAdd={onAddHandler}/> */}
+      {/* <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler} onHide={onHideHandler}/> */}
+      {/* <Footer/> */}
     </div>
+    <Outlet/>
     </ContextApi.Provider>
   )
 }

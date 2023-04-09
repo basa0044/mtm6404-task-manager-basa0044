@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import Header from './components/Header'
 import NewList from './routes/NewList'
+import Navbar from './components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -17,7 +17,11 @@ const router = createBrowserRouter([
     element:<App/>,
     children: [
       {
-        path: "/:id",
+        path: "/",
+        element: <Navbar/>
+      },
+      {
+        path: "/lists/:id",
         element: <ListTemplate/>
       },
       {
