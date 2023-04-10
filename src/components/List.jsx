@@ -1,6 +1,4 @@
 import React from "react"
-import { useContext } from "react"
-import { ContextApi } from "./ContextApi/"
 import ListItem from "./ListItem"
 import Show from "./Show"
 
@@ -8,7 +6,7 @@ export default  function List (props) {
 
     const list = props.list.map((item, id) => ({...item, id}))
 
-    const [show, showItems] = React.useState(false)
+    const [show, showItems] = React.UseState
 
     function onUpdateItemHandler(updatedItem){
         const updatedList =  list.map(item => item.id === updatedItem.id ?

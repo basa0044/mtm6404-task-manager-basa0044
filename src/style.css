@@ -274,6 +274,10 @@ input:focus, textarea:focus, select:focus{
     justify-content: end;
 }
 
+.listTitle{
+    padding-left: 300px;
+}
+
 
 @media only screen and (min-width: 750px){
     nav{

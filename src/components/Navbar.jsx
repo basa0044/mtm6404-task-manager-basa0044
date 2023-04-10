@@ -15,9 +15,7 @@ export default function Navbar(){
             const data = []
             snapshot.forEach(doc => data.push({
                 id: doc.id,
-                complete: doc.data().complete,
                 task: doc.data().task,
-                time: doc.data().time,
                 title: doc.data().title
             }))
             setList(data)

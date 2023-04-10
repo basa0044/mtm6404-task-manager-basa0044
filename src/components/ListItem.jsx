@@ -4,6 +4,7 @@ export default function ListItem(props){
     const item = props.item
 
     function changeHandler(){
+
         props.onUpdateItem(item)
     }
 
@@ -12,7 +13,7 @@ export default function ListItem(props){
     }
 
     return(
-        <div key={item.id} className="list">
+        <div className="list">
              <input type="checkbox" 
              checked={item.complete} 
              value=""
