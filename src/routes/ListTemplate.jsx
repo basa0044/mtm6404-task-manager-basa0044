@@ -47,7 +47,10 @@ export default function ListTemplate(){
     }
 
     function onAddHandler (task){
+        console.log(task)
         setList({...list, tasks: [...list.tasks, task]})
+        console.log(list)
+        updateDoc(doc(db, 'lists', params.id), list)
       }
 
     function onUpdateItemHandler(updatedItem){
