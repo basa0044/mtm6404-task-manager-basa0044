@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import ListTemplate from './routes/ListTemplate'
 import NewList from './routes/NewList'
-import List from './components/List'
+import Lists from './components/Lists'
 
 
 const router = createBrowserRouter([
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <List/>
+        element: <Lists/>
       },
       {
         path: "/lists/:id",

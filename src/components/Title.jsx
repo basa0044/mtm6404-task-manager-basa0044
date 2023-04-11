@@ -1,11 +1,4 @@
-
-
 function Title(){
-    const $form = document.querySelector('.form')
-    function onClickHandler(e){
-        e.preventDefault()
-        alert('button is clicked')
-    }
     
     return(
         <div className="title">

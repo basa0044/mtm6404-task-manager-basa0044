@@ -1,24 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import React from "react";
+import { collection, addDoc } from 'firebase/firestore'
+import db from "../db";
 
 export default function NewList(props){
 
-    const pages = props.pages
+    const navigate = useNavigate()
 
     const[list, setList] = React.useState(
         {
-            title: ''
+            title: '',
+            tasks: [{
+                complete: false,
+                priority: 'Urgent',
+                task: 'Create a to do list!',
+                time: '8.00'
+            }]
         }
     )
 
     function submitHandler(e){
         e.preventDefault()
-        props.handleTitle()
+        const c = collection(db, 'lists')
+        addDoc(c, list)
+        .then(document => navigate('/lists/' + document.id))
+
     }
 
     function changeHandler(e){
         setList({
+            ...list,
             title: e.target.value
         })
     }

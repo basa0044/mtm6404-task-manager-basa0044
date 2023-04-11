@@ -6,7 +6,7 @@ export default  function List (props) {
 
     const list = props.list.map((item, id) => ({...item, id}))
 
-    const [show, showItems] = React.UseState
+    const [show, showItems] = React.useState
 
     function onUpdateItemHandler(updatedItem){
         const updatedList =  list.map(item => item.id === updatedItem.id ?

@@ -1,14 +1,16 @@
 import React from "react"
-import { Link, useParams } from "react-router-dom"
-import {doc, getDoc, updateDoc} from 'firebase/firestore'
+import { Link, useParams, useNavigate } from "react-router-dom"
+import {doc, getDoc, updateDoc, deleteDoc} from 'firebase/firestore'
 import db from "../db"
 import ListItem from "../components/ListItem"
 import Show from "../components/Show"
 import Form from "../components/Form"
+import Title from "../components/Title"
 
 
 export default function ListTemplate(){
 
+    const navigate = useNavigate()
     const params = useParams()
     const [list, setList] = React.useState({
         title: '',
@@ -29,10 +31,19 @@ export default function ListTemplate(){
         } )
     },[params.id])
 
+    function submitHandler(e){
+        e.preventDefault()
+        updateDoc(doc(db, 'lists', params.id), list)
+        .then()
+    }
+
     
 
     function onChangeHandler(e){
-        console.log(list)
+        setList({
+            ...list,
+            title: e.target.value
+        })
     }
 
     function onAddHandler (task){
@@ -43,6 +54,16 @@ export default function ListTemplate(){
         const updatedList =  relist.map( (item) => item.id === updatedItem.id ?
             {...item, complete: !item.complete } : item)
             setList({...list, tasks: updatedList})
+    }
+
+    function onDeleteItemHandler(deletedItem) {
+        const updatedList = relist.filter(item => item.id !== deletedItem.id)
+        setList({...list, tasks: updatedList})
+    }
+
+    function clickHandler(){
+        deleteDoc(doc(db, 'lists', params.id))
+        .then(() => navigate('/'))
     }
 
     // function showRemaining(){
@@ -61,14 +82,20 @@ export default function ListTemplate(){
     if(list.tasks.length){
     return(
         <>
+        <form onSubmit={submitHandler}>
         <input name="title" type="text" className="form-control listTitle"
         value={list.title} onChange={onChangeHandler}></input>
+        </form>
+        <Title/>
         <Form onAdd={onAddHandler}/>
         <ul className='listItems'>
         {relist.map((item) => <ListItem key={item.id} item={item} 
-        onUpdateItem={onUpdateItemHandler} />)}
+        onUpdateItem={onUpdateItemHandler}  onDeleteItem={onDeleteItemHandler}/>)}
             <Show remaining={remaining}/>
         </ul>
+        <div className="deleteList">
+        <button className="btn btn-danger deleteButton" onClick={clickHandler}>Delete List</button>
+        </div>
         </>
         ) 
     }else{

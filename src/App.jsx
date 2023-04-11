@@ -75,14 +75,12 @@ function App (){
 
   return(
     <ContextApi.Provider value={context}>
-    <div>
       {/* <Header/> */}
       <Navbar/>
       {/* <Title/> */}
       {/* <Form onAdd={onAddHandler}/> */}
       {/* <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler} onHide={onHideHandler}/> */}
       <Footer/>
-    </div>
     {/* <Outlet/> */}
     </ContextApi.Provider>
   )

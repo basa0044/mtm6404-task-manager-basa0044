@@ -56,6 +56,8 @@ table {
 #root{
     background-color: #FAFAFF;
     min-height: 560px;
+    display: flex;
+    flex-direction: column;
 }
 
 h1{
@@ -85,6 +87,7 @@ nav{
     padding-bottom: 30px;
     padding-top: 30px;
     display: flex;
+    flex-grow: 1;
     justify-content: space-between;
     align-items: center;
 }
@@ -124,7 +127,7 @@ button i{
 }
 
 .listItems{
-    min-height: calc(100vh - 212px);
+    flex-grow: 1;
 }
 .isNoItem{
     height: 60vh;
@@ -275,7 +278,20 @@ input:focus, textarea:focus, select:focus{
 }
 
 .listTitle{
-    padding-left: 300px;
+    padding-left: 328px;
+    font-size: 54px;
+}
+
+.deleteList{
+    margin-left: 340px;
+    margin-bottom: 20px;
+}
+
+.deleteButton{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -338,10 +354,9 @@ input:focus, textarea:focus, select:focus{
 
     .title{
         margin-left: 300px;
-        padding-top: 182px;
+        padding-top: 10px;
         padding-left: 35px;
         padding-right: 35px;
-        flex-wrap:wrap;
     }
 
     .title div{
@@ -391,8 +406,6 @@ input:focus, textarea:focus, select:focus{
     }
 
     .listItems{
-        min-height: calc(100vh - 431px);
-        max-height: calc(100vh - 431px);
         overflow: scroll;
     }
 
