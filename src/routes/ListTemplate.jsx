@@ -1,4 +1,5 @@
 import React from "react"
+import { useEffect } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import {doc, getDoc, updateDoc, deleteDoc} from 'firebase/firestore'
 import db from "../db"
@@ -37,8 +38,6 @@ export default function ListTemplate(){
         .then()
     }
 
-    
-
     function onChangeHandler(e){
         setList({
             ...list,
@@ -47,21 +46,25 @@ export default function ListTemplate(){
     }
 
     function onAddHandler (task){
-        console.log(task)
         setList({...list, tasks: [...list.tasks, task]})
-        console.log(list)
         updateDoc(doc(db, 'lists', params.id), list)
+        .then()
       }
+
 
     function onUpdateItemHandler(updatedItem){
         const updatedList =  relist.map( (item) => item.id === updatedItem.id ?
             {...item, complete: !item.complete } : item)
             setList({...list, tasks: updatedList})
+            updateDoc(doc(db, 'lists', params.id), list)
+            .then()
     }
 
     function onDeleteItemHandler(deletedItem) {
         const updatedList = relist.filter(item => item.id !== deletedItem.id)
         setList({...list, tasks: updatedList})
+        updateDoc(doc(db, 'lists', params.id), list)
+        .then()
     }
 
     function clickHandler(){
@@ -76,13 +79,17 @@ export default function ListTemplate(){
     //     }else{       
     //         setCompletedItems(state => !state)
     //     }
-        
-        
-    // }
+    //       } 
+
 
     const remaining = list.tasks.filter(item => !item.complete).length
 
     if(list.tasks.length){
+            relist.sort((a, b) => {
+                if(a.priority < b.priority){return 1}
+                else if(a.priority > b.priority){return -1}
+                else{return 0}
+            })  
     return(
         <>
         <form onSubmit={submitHandler}>
@@ -103,8 +110,17 @@ export default function ListTemplate(){
         ) 
     }else{
     return(
+        <>
+        <form onSubmit={submitHandler}>
+        <input name="title" type="text" className="form-control listTitle"
+        value={list.title} onChange={onChangeHandler}></input>
+        </form>
+        <Title/>
+        <Form onAdd={onAddHandler}/>
         <p className="isNoItem">There are no items on your list.</p>
+        </>
         )
+        
     }     
 }     
 
