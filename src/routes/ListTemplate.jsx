@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect } from "react"
 import { Link, useParams, useNavigate } from "react-router-dom"
-import {doc, getDoc, updateDoc, deleteDoc} from 'firebase/firestore'
+import {doc, getDoc, updateDoc, deleteDoc, setDoc} from 'firebase/firestore'
 import db from "../db"
 import ListItem from "../components/ListItem"
 import Show from "../components/Show"
@@ -71,6 +71,19 @@ export default function ListTemplate(){
         deleteDoc(doc(db, 'lists', params.id))
         .then(() => navigate('/'))
     }
+
+    // const updateData = async (newData) => {
+    //     try {
+    //       // Update the state
+    //       setData(newData);
+    
+    //       // Update the Firebase document
+    //       const docRef = firebase.firestore().collection('myCollection').doc('myDoc');
+    //       await docRef.update({ data: newData });
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   };
 
     // function showRemaining(){
     //     if(!completedItems){
