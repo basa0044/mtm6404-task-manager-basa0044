@@ -45,25 +45,28 @@ export default function ListTemplate(){
         })
     }
 
-    function onAddHandler (task){
-        setList({...list, tasks: [...list.tasks, task]})
-        updateDoc(doc(db, 'lists', params.id), list)
+    async function onAddHandler (task){
+        const newList = {...list, tasks: [...list.tasks, task]}
+        setList(newList)
+        await updateDoc(doc(db, 'lists', params.id), newList)
         .then()
       }
 
 
-    function onUpdateItemHandler(updatedItem){
+    async function onUpdateItemHandler(updatedItem){
         const updatedList =  relist.map( (item) => item.id === updatedItem.id ?
             {...item, complete: !item.complete } : item)
-            setList({...list, tasks: updatedList})
-            updateDoc(doc(db, 'lists', params.id), list)
+            const newList = {...list, tasks: updatedList}
+            setList(newList)
+            await updateDoc(doc(db, 'lists', params.id), newList)
             .then()
     }
 
-    function onDeleteItemHandler(deletedItem) {
+    async function onDeleteItemHandler(deletedItem) {
         const updatedList = relist.filter(item => item.id !== deletedItem.id)
-        setList({...list, tasks: updatedList})
-        updateDoc(doc(db, 'lists', params.id), list)
+        const newList = {...list, tasks: updatedList}
+        setList(newList)
+        await updateDoc(doc(db, 'lists', params.id), newList)
         .then()
     }
 
@@ -72,18 +75,6 @@ export default function ListTemplate(){
         .then(() => navigate('/'))
     }
 
-    // const updateData = async (newData) => {
-    //     try {
-    //       // Update the state
-    //       setData(newData);
-    
-    //       // Update the Firebase document
-    //       const docRef = firebase.firestore().collection('myCollection').doc('myDoc');
-    //       await docRef.update({ data: newData });
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    //   };
 
     // function showRemaining(){
     //     if(!completedItems){
