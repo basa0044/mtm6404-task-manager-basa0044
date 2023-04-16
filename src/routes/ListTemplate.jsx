@@ -80,14 +80,9 @@ export default function ListTemplate(){
     }
 
 
-    function showRemaining(){
-        if(!toggleButton){
-            setToggleButton(state => !state)  
-            const remaining = {...list, tasks: unCompleted}
-            setList(remaining)
-        }else{     
-            setToggleButton(state => !state)  
-            }
+    function onClickButton(){
+        setToggleButton( prev => !prev)
+        console.log(toggleButton)
           } 
 
 
@@ -109,8 +104,9 @@ export default function ListTemplate(){
         <Form onAdd={onAddHandler}/>
         <ul className='listItems'>
         {relist.map((item) => <ListItem key={item.id} item={item} 
-        onUpdateItem={onUpdateItemHandler}  onDeleteItem={onDeleteItemHandler}/>)}
-            <Show remaining={remaining} onClickButton={showRemaining} toggleButton={toggleButton}/>
+        onUpdateItem={onUpdateItemHandler}  onDeleteItem={onDeleteItemHandler}
+        toggleButton={toggleButton}/>)}
+            <Show toggleButton={toggleButton} remaining={remaining} onClickButton={onClickButton}/>
         </ul>
         <div className="deleteList">
         <button className="btn btn-danger deleteButton" onClick={clickHandler}>Delete List</button>
