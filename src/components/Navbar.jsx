@@ -3,24 +3,12 @@ import React from "react"
 import Lists from "./Lists"
 import {collection, query, onSnapshot} from 'firebase/firestore'
 import db from '../db'
+import { ContextApi } from "../ContextApi"
 
 export default function Navbar(){
-5
-    const[lists, setList] = React.useState([])
 
-    React.useEffect(() => {
-        const c = collection(db, 'lists')
-        const q = query(c)
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            const data = []
-            snapshot.forEach(doc => data.push({
-                id: doc.id,
-                task: doc.data().task,
-                title: doc.data().title
-            }))
-            setList(data)
-        })
-    },[])
+    const lists = React.useContext(ContextApi);
+
 
     return(
         <>

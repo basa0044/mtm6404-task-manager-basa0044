@@ -1,5 +1,11 @@
+import React from "react";
+import { ContextApi } from "../ContextApi"
+
 
 export default function ListItem(props){
+
+    const lists = React.useContext(ContextApi);
+    console.log(lists)
 
     const item = props.item
 

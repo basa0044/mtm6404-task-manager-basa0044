@@ -1,87 +1,37 @@
 import React from 'react'
 import ReactDOM  from 'react-dom/client'
-import Header from './components/Header'
 import Navbar from './components/Navbar'
-import Title from './components/Title'
 import Footer from './components/Footer'
-import List from './components/List'
-import Form from './components/Form'
-import {ContextApi} from './components/ContextApi'
-import { Outlet } from 'react-router-dom'
-
-function App (){  
-
-  const [context, Setcontext] = React.useState("list item")
-
-  let items = [
-    {
-      complete: false,
-      task: "Clean your room", 
-      priority: "Low",
-      time: "10.30",
-    },
-    { 
-      complete: false,
-      task: "Workout", 
-      priority: "Medium",
-      time: "10.30",
-    },
-    {
-      complete: false,
-      task: "Movie Time", 
-      priority: "Medium",
-      time: "10.30",
-    },
-    {
-      complete: false,
-      task: "Cooking", 
-      priority: "Urgent",
-      time: "10.30",
-    },
-    {
-      complete: true,
-      task: "Lecture", 
-      priority: "Urgent",
-      time: "10.30",
-    }
-    ]
+import { createContext } from "react";
+import db from './db';
+import {collection, query, onSnapshot} from 'firebase/firestore'
+import  { ContextApi }  from './ContextApi'
 
 
-  const [list, setList] = React.useState(() => 
-   JSON.parse(localStorage.getItem('list')) || items)
-
-  function onAddHandler (task){
-    setList([...list, task])
-  }
-
-
-  function onUpdateHandler(list){
-    setList(list)
-  }
-
-  function onDeleteHandler (list){
-    setList(list)
-  }
-
-  function onHideHandler (list){
-    setList(list)
-  }
+function App (){
+  
+ 
+  const[lists, setList] = React.useState([])
 
   React.useEffect(() => {
-    localStorage.setItem('list', JSON.stringify(list))
-  }, [JSON.stringify(list)])
-
+      const c = collection(db, 'lists')
+      const q = query(c)
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+          const data = []
+          snapshot.forEach(doc => data.push({
+              id: doc.id,
+              tasks: doc.data().tasks,
+              title: doc.data().title
+          }))
+          setList(data)
+      })
+  },[])
 
 
   return(
-    <ContextApi.Provider value={context}>
-      {/* <Header/> */}
+    <ContextApi.Provider value={lists}>
       <Navbar/>
-      {/* <Title/> */}
-      {/* <Form onAdd={onAddHandler}/> */}
-      {/* <List list={list} onUpdate={onUpdateHandler} onDelete={onDeleteHandler} onHide={onHideHandler}/> */}
       <Footer/>
-    {/* <Outlet/> */}
     </ContextApi.Provider>
   )
 }

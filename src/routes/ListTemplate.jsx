@@ -7,9 +7,14 @@ import ListItem from "../components/ListItem"
 import Show from "../components/Show"
 import Form from "../components/Form"
 import Title from "../components/Title"
+import { ContextApi } from "../ContextApi"
+
 
 
 export default function ListTemplate(){
+
+    
+    const [toggleButton, setToggleButton] = React.useState(false)
 
     const navigate = useNavigate()
     const params = useParams()
@@ -19,8 +24,7 @@ export default function ListTemplate(){
     })
 
     let relist = list.tasks.map((item, id) => ({...item, id}))
-
-    const[completedItems, setCompletedItems] = React.useState(false)
+    const unCompleted = list.tasks.filter(item => !item.complete)
 
     React.useEffect(() => {
         getDoc (doc(db, 'lists', params.id))
@@ -76,14 +80,15 @@ export default function ListTemplate(){
     }
 
 
-    // function showRemaining(){
-    //     if(!completedItems){
-    //         relist.filter(item => !item.complete)
-    //         setCompletedItems(state => !state)
-    //     }else{       
-    //         setCompletedItems(state => !state)
-    //     }
-    //       } 
+    function showRemaining(){
+        if(!toggleButton){
+            setToggleButton(state => !state)  
+            const remaining = {...list, tasks: unCompleted}
+            setList(remaining)
+        }else{     
+            setToggleButton(state => !state)  
+            }
+          } 
 
 
     const remaining = list.tasks.filter(item => !item.complete).length
@@ -105,7 +110,7 @@ export default function ListTemplate(){
         <ul className='listItems'>
         {relist.map((item) => <ListItem key={item.id} item={item} 
         onUpdateItem={onUpdateItemHandler}  onDeleteItem={onDeleteItemHandler}/>)}
-            <Show remaining={remaining}/>
+            <Show remaining={remaining} onClickButton={showRemaining} toggleButton={toggleButton}/>
         </ul>
         <div className="deleteList">
         <button className="btn btn-danger deleteButton" onClick={clickHandler}>Delete List</button>
