@@ -151,11 +151,8 @@ button i{
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    background-color: pink;
     z-index: 2;
 }
-
-
 
 .variants{
     display: flex;
@@ -307,17 +304,19 @@ ul a:active{
     color: blue;
 }
 
-.urgent{
+.urg{
     background-color: #FFD7D0;
 }
 
-.medium{
+.med{
     background-color: #D6F2FB;
 }
 
-.low{
+.lo{
     background-color: #FFF3DF;
 }
+
+
 
 @media only screen and (min-width: 750px){
     nav{
@@ -498,6 +497,17 @@ ul a:active{
         margin-left: 300px;
     }
 
+    .urgent{
+        background-color: #FFD7D0;
+    }
+    
+    .medium{
+        background-color: #D6F2FB;
+    }
+    
+    .low{
+        background-color: #FFF3DF;
+    }
 
 }
 

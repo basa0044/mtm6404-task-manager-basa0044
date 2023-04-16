@@ -48,7 +48,7 @@ export default function ListItem(props){
             <div className="variants">
                 <span className={ item.priority === 'Urgent' ? 'urgent' : item.priority === 'Medium' ? 'medium' : 'low'}
                 >{item.priority}</span>
-                <span className="color"></span>
+                <span className={ item.priority === 'Urgent' ? 'urg color' : item.priority === 'Medium' ? 'med color' : 'lo color'}></span>
                 <p className="time">{item.time}</p>
                 <i onClick={clickHandler} className="fa-solid fa-trash"></i>
             </div>
