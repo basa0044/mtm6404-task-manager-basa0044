@@ -294,6 +294,30 @@ input:focus, textarea:focus, select:focus{
     align-items: center;
 }
 
+ul a{
+    text-decoration: none; 
+    color: black;
+}
+
+ul a:hover{
+    color: #525252;
+}
+
+ul a:active{
+    color: blue;
+}
+
+.urgent{
+    background-color: #FFD7D0;
+}
+
+.medium{
+    background-color: #D6F2FB;
+}
+
+.low{
+    background-color: #FFF3DF;
+}
 
 @media only screen and (min-width: 750px){
     nav{
@@ -305,6 +329,7 @@ input:focus, textarea:focus, select:focus{
         background: #F4F4F6;
         align-items: center;
         justify-content: space-between;
+        position: fixed;
     }
 
     nav span{

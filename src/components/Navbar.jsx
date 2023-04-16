@@ -16,7 +16,7 @@ export default function Navbar(){
             <span>TASK MANAGER</span>
             <ul>
                 {lists.map(list => (
-                    <Link to={"/lists/" + list.id} key={list.id} >
+                    <Link to={"/lists/" + list.id} key={list.id}>
                         <Lists title={list.title}/>
                     </Link>
                 ))}

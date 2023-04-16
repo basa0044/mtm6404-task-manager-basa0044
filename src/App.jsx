@@ -31,7 +31,7 @@ function App (){
   return(
     <ContextApi.Provider value={lists}>
       <Navbar/>
-      <Footer/>
+      {/* <Footer/> */}
     </ContextApi.Provider>
   )
 }

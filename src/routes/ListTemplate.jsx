@@ -13,7 +13,6 @@ import { ContextApi } from "../ContextApi"
 
 export default function ListTemplate(){
 
-    
     const [toggleButton, setToggleButton] = React.useState(false)
 
     const navigate = useNavigate()
