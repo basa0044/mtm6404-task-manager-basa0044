@@ -55,6 +55,7 @@ table {
 
 #root{
     min-height: 560px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -207,6 +208,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
     color: #284B63;
     padding-top: 16px;
     padding-bottom: 16px;
@@ -530,7 +532,7 @@ ul a:active{
 
     footer{
         margin-left: 300px;
-        justify-content: end;
+        margin-top: auto;
         padding-right: 35px;
     }
 

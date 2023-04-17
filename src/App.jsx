@@ -1,8 +1,6 @@
 import React from 'react'
-import ReactDOM  from 'react-dom/client'
 import Navbar from './components/Navbar'
-import Home from './routes/Home'
-import { createContext } from "react";
+import Footer from './components/Footer';
 import db from './db';
 import {collection, query, onSnapshot} from 'firebase/firestore'
 import  { ContextApi }  from './ContextApi'
@@ -32,6 +30,7 @@ function App (){
   return(
     <ContextApi.Provider value={lists}>
       <Navbar/>
+      <Footer/>
     </ContextApi.Provider>
   )
 }
