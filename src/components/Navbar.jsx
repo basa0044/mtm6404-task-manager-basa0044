@@ -1,18 +1,25 @@
-import { Outlet, NavLink ,Link } from "react-router-dom"
+import { Outlet ,Link } from "react-router-dom"
 import React from "react"
 import Lists from "./Lists"
-import {collection, query, onSnapshot} from 'firebase/firestore'
-import db from '../db'
 import { ContextApi } from "../ContextApi"
 
 export default function Navbar(){
 
     const lists = React.useContext(ContextApi);
 
+    const [ collapse, setCollapse] = React.useState(true)
+
+    function hamburgerNav(){
+        setCollapse(state => !state)
+    }
+
 
     return(
         <>
-        <nav>
+            <div className="header" onClick={hamburgerNav}>
+                <i className="fa-solid fa-bars"></i>
+            </div>
+        <nav className={collapse? "displayNone" : null}>
             <span>TASK MANAGER</span>
             <ul>
                 {lists.map(list => (

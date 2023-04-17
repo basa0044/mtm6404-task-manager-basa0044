@@ -54,10 +54,14 @@ table {
 /************************ MY STYLES *************************/
 
 #root{
-    background-color: #FAFAFF;
     min-height: 560px;
     display: flex;
     flex-direction: column;
+}
+
+body{
+    height: 100vh;
+    background-color: #FAFAFF;
 }
 
 h1{
@@ -71,14 +75,40 @@ h1{
   padding-left: 20px;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px solid #F4F4F6;
   padding-top: 14px;
   padding-bottom: 14px;
 }
 
 
 nav{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #F4F4F6;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+nav span{
+    margin-bottom: 30px;
+    color: #284B63;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.header{
+    align-self: flex-start;
+    background-color: #F4F4F6;
+    width: 100%;
+}
+
+.displayNone{
     display: none;
+}
+
+nav ul a li{
+    margin-bottom: 30px;
 }
 
 .title{
@@ -160,6 +190,7 @@ button i{
     align-items: center;
     margin-left: auto;
     padding-right: 12px;
+    max-width: 100px;
 }
 
 
@@ -237,7 +268,6 @@ input:focus, textarea:focus, select:focus{
 }
 
 .newPageForm{
-    height: 100vh;
     display: flex;
     min-width: 200px;
     width: 400px;
@@ -245,12 +275,11 @@ input:focus, textarea:focus, select:focus{
     justify-content: center;
     margin-bottom: 0px;
     margin-right: 0px;
-    background-color: white;
 }
 
 .newForm{
     width: 100%;
-    background-color: white;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
 }
@@ -275,13 +304,23 @@ input:focus, textarea:focus, select:focus{
 }
 
 .listTitle{
-    padding-left: 328px;
     font-size: 54px;
+    background-color: #FAFAFF;
+    border: none;
+}
+
+.listTitle:focus{
+    background-color: #FAFAFF;
+}
+
+.listTitle:focus::after{
+   outline: none;
 }
 
 .deleteList{
-    margin-left: 340px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .deleteButton{
@@ -289,6 +328,8 @@ input:focus, textarea:focus, select:focus{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #284B63;
+    color: white;
 }
 
 ul a{
@@ -316,28 +357,54 @@ ul a:active{
     background-color: #FFF3DF;
 }
 
+.fa-solid{
+    cursor: pointer;
+}
+
+.about{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time{
+    width: 80px;
+}
 
 
 @media only screen and (min-width: 750px){
-    nav{
+
+    .displayNone{
+        width: 300px;
+        position: fixed;
         display: flex;
         flex-direction: column;
-        width: 300px;
         height: 100%;
-        position:absolute;
         background: #F4F4F6;
         align-items: center;
         justify-content: space-between;
+        padding: 20px;
+    }
+
+    nav{
+        width: 300px;
         position: fixed;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background: #F4F4F6;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
     }
 
     nav span{
-        font-size: 35px;
-        font-weight: bold;
         width: 153px;
         padding-top: 50px;
         padding-bottom: 123px;
-        color: #284B63;
+
     }
 
     nav ul{
@@ -358,14 +425,7 @@ ul a:active{
 
 
     .header{
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        right: 0px;
-        height: 130px;
-        padding-left: 320px;
+        display: none;
     }
 
     .header i{
@@ -436,18 +496,16 @@ ul a:active{
     .list input{
         margin-top: 17px;
         margin-bottom: 17px;
-        flex-basis: 5%;
     }
 
     .list p{
-        flex-basis: 40%;
         margin-left: 50px;
     }
 
     .variants{
-        flex-basis: 45%;
         justify-content: end;
         display: flex;
+        max-width: 200px;
     }
 
     .variants span{
@@ -507,6 +565,28 @@ ul a:active{
     
     .low{
         background-color: #FFF3DF;
+    }
+
+    .listTitle{
+        padding-left: 328px;
+    }
+
+    .deleteList{
+        margin-right: 30px;
+        justify-content: flex-end;
+    }
+
+    .newForm{
+        height: 100vh;
+        margin-top: 0px;
+    }
+
+    .about{
+        padding-left: 300px;
+    }
+
+    .time{
+        width: 100px;
     }
 
 }

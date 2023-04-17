@@ -1,16 +1,17 @@
 import React from 'react'
 import ReactDOM  from 'react-dom/client'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Home from './routes/Home'
 import { createContext } from "react";
 import db from './db';
 import {collection, query, onSnapshot} from 'firebase/firestore'
 import  { ContextApi }  from './ContextApi'
+import 'firebase/firestore';
 
 
 function App (){
-  
- 
+
+
   const[lists, setList] = React.useState([])
 
   React.useEffect(() => {
@@ -31,7 +32,6 @@ function App (){
   return(
     <ContextApi.Provider value={lists}>
       <Navbar/>
-      {/* <Footer/> */}
     </ContextApi.Provider>
   )
 }

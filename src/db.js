@@ -1,5 +1,6 @@
 import {initializeApp} from 'firebase/app'
 import {getFirestore} from 'firebase/firestore' 
+import { getDatabase, ref, onDisconnect } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,5 +17,6 @@ const firebaseConfig = {
 
 // establish a connection to firestore
   const db = getFirestore(app)
+
 
   export default db

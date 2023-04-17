@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import NavBar from "../components/Navbar";
 import React from "react";
 import { collection, addDoc } from 'firebase/firestore'
 import db from "../db";
@@ -38,7 +37,6 @@ export default function NewList(props){
 
     return(
         <>
-        <NavBar/>
         <div className="newForm">
         <form onSubmit={submitHandler} className="newPageForm">
             <h1 className="mb-3">New Page</h1>

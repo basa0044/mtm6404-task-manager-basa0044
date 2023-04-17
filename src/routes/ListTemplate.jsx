@@ -1,13 +1,11 @@
 import React from "react"
-import { useEffect } from "react"
-import { Link, useParams, useNavigate } from "react-router-dom"
-import {doc, getDoc, updateDoc, deleteDoc, setDoc} from 'firebase/firestore'
+import { useParams, useNavigate } from "react-router-dom"
+import {doc, getDoc, updateDoc, deleteDoc} from 'firebase/firestore'
 import db from "../db"
 import ListItem from "../components/ListItem"
 import Show from "../components/Show"
 import Form from "../components/Form"
 import Title from "../components/Title"
-import { ContextApi } from "../ContextApi"
 
 
 
@@ -87,12 +85,14 @@ export default function ListTemplate(){
 
     const remaining = list.tasks.filter(item => !item.complete).length
 
+    const priorityOrder = { High: 0, Medium: 1, Low: 2 };
+
+    function compareTasks(a, b) {
+        return priorityOrder[a.priority] - priorityOrder[b.priority];
+      }
+
     if(list.tasks.length){
-            relist.sort((a, b) => {
-                if(a.priority < b.priority){return 1}
-                else if(a.priority > b.priority){return -1}
-                else{return 0}
-            })  
+            relist.sort(compareTasks) 
     return(
         <>
         <form onSubmit={submitHandler}>
@@ -108,7 +108,7 @@ export default function ListTemplate(){
             <Show toggleButton={toggleButton} remaining={remaining} onClickButton={onClickButton}/>
         </ul>
         <div className="deleteList">
-        <button className="btn btn-danger deleteButton" onClick={clickHandler}>Delete List</button>
+        <button className="btn deleteButton" onClick={clickHandler}>Delete List</button>
         </div>
         </>
         ) 
