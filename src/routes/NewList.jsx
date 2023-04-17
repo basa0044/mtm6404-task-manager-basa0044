@@ -12,7 +12,7 @@ export default function NewList(props){
             title: '',
             tasks: [{
                 complete: false,
-                priority: 'Urgent',
+                priority: 'High',
                 task: 'Create a to do list!',
                 time: '8.00'
             }]
