@@ -4,7 +4,7 @@ export default function Form(props){
 
     const [task, setTask] = React.useState('')
     const [time, setTime] = React.useState('')
-    const [priority, setPriority] = React.useState('Urgent')
+    const [priority, setPriority] = React.useState('High')
 
     function formHandler (e){
         e.preventDefault()
@@ -32,12 +32,12 @@ export default function Form(props){
     <form onSubmit={formHandler} className="list">
         <input className="textarea" type="text" placeholder="Create a new todo..." 
         value={task} onChange={changeHandler}/>
-        <select  onChange={priorityHandler} className="variants">
-            <option value="Urgent">Urgent</option>
+        <select onChange={priorityHandler} className="variants form-select">
+            <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low" >Low</option>
         </select>
-        <input type="time" value={time} onChange={timeHandler}></input>
+        <input className="form-control time" type="time" step="60" value={time} onChange={timeHandler}></input>
       </form>
  )
 }

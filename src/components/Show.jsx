@@ -1,4 +1,3 @@
-import React from "react"
 
 export default function Show(props){
 
@@ -9,7 +8,7 @@ export default function Show(props){
     return (
        <div className="list button"> 
         <p>Remaining Items: <span>{props.remaining}</span></p>
-        <button onClick={clickHandler} className="showItems" >Hide Completed</button>
+        <button onClick={clickHandler} className="showItems" >{ props.toggleButton? "Show Completed" : "Hide Completed" }</button>
        </div>
     )
 }

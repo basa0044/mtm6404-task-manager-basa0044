@@ -1,6 +1,7 @@
-
 export default function Footer(){
     return(
-        <footer><p>© 2023 Feyza Basaran. All rights reserved.</p></footer>
+    <footer>
+    <h4> © All rights reserved by Feyza Basaran</h4>
+    </footer>
     )
 }
