@@ -1,27 +1,45 @@
-
-// function ListItem (items) {
-//     return .join('')
-// }
+import React from "react"
+import ListItem from "./ListItem"
+import Show from "./Show"
 
 export default  function List (props) {
-    const items = props.items
-    
-    if(items.length){
-    
-        const ListItems = items.map( item => 
-        <div key={item.index} className="list">
-            <input type="checkbox"></input>
-            <span className="textarea">{item.task}</span>
-            <div className="variants">
-                <span>{item.priority}</span>
-                <span className="color"></span>
-                <p className="time">{item.time}</p>
-                <i className="fa-solid fa-trash"></i>
-            </div>
-        </div>
-    )
+
+    const list = props.list.map((item, id) => ({...item, id}))
+
+
+
+    function onUpdateItemHandler(updatedItem){
+        const updatedList =  list.map(item => item.id === updatedItem.id ?
+            {...item, complete: !item.complete } : item)
+            props.onUpdate(updatedList)
+    }
+
+    function onDeleteItemHandler(deletedItem) {
+        const updatedList = list.filter(item => item.id !== deletedItem.id)
+        props.onDelete(updatedList)
+    }
+    const remaining = list.filter(item => !item.complete).length
+
+    function onClickButtonHandler(){
+        const updatedList = list.filter(item => !item.complete)
+        props.onHide(updatedList)
+    }
+
+    if(list.length){
+        list.sort((a, b) => {
+            if(a.priority < b.priority){return -1}
+            else if(a.priority > b.priority){return 1}
+            else{return 0}
+        })   
+
+        list.reverse()
     return(
-      <ul className='listItems'>{ListItems}</ul>
+      <ul className='listItems'>
+      {list.map(item => <ListItem key={item.id} item={item} 
+      onUpdateItem={onUpdateItemHandler}
+      onDeleteItem={onDeleteItemHandler} />)}
+      <Show remaining={remaining} onClickButton={onClickButtonHandler}/>
+      </ul>
       ) }else{
         return(
             <p className="isNoItem">There are no items on your list.</p>
@@ -29,41 +47,5 @@ export default  function List (props) {
         }          
   }
     
-        // {/* <div className="list">
-        //     <input type="checkbox"></input>
-        //     <p className="textarea">Project Due</p>
-        //     <div className="variants">
-        //         <span><p>High</p></span>
-        //         <p className="time">11.59</p>
-        //         <i>Icon</i>
-        //     </div>
-        // </div>
-        // <div className="list">
-        //     <input type="checkbox"></input>
-        //     <p className="textarea">Class</p>
-        //     <div className="variants">
-        //         <span><p>Medium</p></span>
-        //         <p className="time">17.00</p>
-        //         <i>Icon</i>
-        //     </div>
-        // </div>
-        // <div className="list">
-        //     <input type="checkbox"></input>
-        //     <p className="textarea">Workout</p>
-        //     <div className="variants">
-        //         <span><p>Low</p></span>
-        //         <p className="time">21.30</p>
-        //         <i>Icon</i>
-        //     </div>
-        // </div>
-        // <div className="list">
-        //     <input type="checkbox"></input>
-        //     <p className="textarea">Movie time with sister</p>
-        //     <div className="variants">
-        //         <span><p>Low</p></span>
-        //         <p className="time">22.30</p>
-        //         <i>Icon</i>
-        //     </div>
-        // </div> */}
-        // </div>
+
     
